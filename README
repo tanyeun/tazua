@@ -5,3 +5,31 @@ User's manual: see html-doc/manual.html
 Updates:       see http://xournal.sourceforge.net/
 
 See also: http://sourceforge.net/projects/xournal
+
+## INSTALLATION ON MAC ##
+1. Install autoconf:
+cd /usr/local/src
+curl --remote-name http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+tar -xzvf autoconf-2.69.tar.gz
+cd autoconf-2.69
+./configure --prefix=/usr/local/autoconf-2.69
+make
+make install
+
+2. Install automake:
+curl -OL http://ftpmirror.gnu.org/automake/automake-1.14.tar.gz
+// The rest is the same as above
+
+3. Install Brew:
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
+
+4. Install multiple libs
+brew install glib
+brew install gtk+
+brew install libgnomecanvas
+brew install poppler
+
+5. For some reason, I have to add the following line in src/Makefile 
+in order for compiler to find poppler.h:
+INCLUDES ….. -I/usr/local/include
+
