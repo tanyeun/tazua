@@ -11,6 +11,7 @@ config.guess
 config.h
 config.status
 config.sub
+config.log
 configure
 po/Makefile.in.in
 po/POTFILES
@@ -21,4 +22,5 @@ src/ttsubset/.deps/
 src/ttsubset/Makefile
 src/ttsubset/Makefile.in
 src/xournal
+src/test/
 stamp-h1
