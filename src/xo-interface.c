@@ -297,6 +297,7 @@ create_winMain (void)
   GtkWidget *buttonZoomSet;
   GtkWidget *tmp_image;
   GtkWidget *buttonFullscreen;
+  GtkWidget *buttonBookmark;	  // add a button to invoke bookmark viewer
   GtkWidget *toolbarPen;
   GSList *buttonPen_group = NULL;
   GtkWidget *buttonPen;
@@ -1618,6 +1619,11 @@ create_winMain (void)
   gtk_widget_show (buttonFullscreen);
   gtk_container_add (GTK_CONTAINER (toolbarMain), buttonFullscreen);
   gtk_tool_item_set_tooltip (GTK_TOOL_ITEM (buttonFullscreen), tooltips, _("Toggle Fullscreen"), NULL);
+  /*---bookmark viewer---start---*/
+  buttonBookmark = (GtkWidget*) gtk_tool_button_new (NULL, "B");
+  gtk_widget_show (buttonBookmark);
+  gtk_container_add (GTK_CONTAINER (toolbarMain), buttonBookmark);
+  /*---bookmark viewer---end---*/
 
   toolbarPen = gtk_toolbar_new ();
   gtk_widget_show (toolbarPen);
@@ -2542,6 +2548,11 @@ create_winMain (void)
   g_signal_connect ((gpointer) buttonFullscreen, "toggled",
                     G_CALLBACK (on_viewFullscreen_activate),
                     NULL);
+  /*--- bookmark viewer ---start---*/
+  g_signal_connect ((gpointer) buttonBookmark, "clicked",
+                    G_CALLBACK (on_viewBookmark_activate),
+                    NULL);
+  /*--- bookmark viewer ---end---*/
   g_signal_connect ((gpointer) buttonPen, "toggled",
                     G_CALLBACK (on_toolsPen_activate),
                     NULL);
@@ -2890,6 +2901,9 @@ create_winMain (void)
   GLADE_HOOKUP_OBJECT (winMain, buttonNormalSize, "buttonNormalSize");
   GLADE_HOOKUP_OBJECT (winMain, buttonZoomSet, "buttonZoomSet");
   GLADE_HOOKUP_OBJECT (winMain, buttonFullscreen, "buttonFullscreen");
+  /* --- bookmark viewer ---start---*/
+  GLADE_HOOKUP_OBJECT (winMain, buttonBookmark, "buttonBookmark");
+  /* --- bookmark viewer ---end---*/
   GLADE_HOOKUP_OBJECT (winMain, toolbarPen, "toolbarPen");
   GLADE_HOOKUP_OBJECT (winMain, buttonPen, "buttonPen");
   GLADE_HOOKUP_OBJECT (winMain, buttonEraser, "buttonEraser");
