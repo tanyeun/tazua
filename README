@@ -35,8 +35,8 @@ INCLUDES ….. -I/usr/local/include
 
 ## INSTALLATION ON LINUX ##
 1. apt-get install autoconf
-2. apt-get install glibc-source libglib2.0-dev glibc-doc
-3. apt-get install gtk2.0-examples libglib2.0-dev libglib2.0-data libglib2.0-doc 
+2. apt-get install glibc-source libglib2.0-dev glibc-doc 
+3. apt-get install libgtk2.0-dev gtk2.0-examples libglib2.0-dev libglib2.0-data libglib2.0-doc 
 4. apt-get install libgnomecanvas2-dev libgnomecanvas2-dbg
 5. apt-get install libpoppler-glib-doc libpoppler-glib-dev
 
